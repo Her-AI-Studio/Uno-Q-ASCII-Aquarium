@@ -1,6 +1,6 @@
 # ASCII Aquarium for Arduino UNO Q
 
-The ASCII Aquarium, ported from the ESP32 CYD firmware to an **Arduino App Lab** app.
+The ASCII Aquarium, ported from the ESP32 CYD firmware to an **Arduino App Lab** app. Original idea from https://github.com/POWER-PILL/ASCII-Aquarium.
 
 | Where | What |
 |---|---|
@@ -8,7 +8,7 @@ The ASCII Aquarium, ported from the ESP32 CYD firmware to an **Arduino App Lab**
 | **8x13 LED matrix** (on the board) | A tiny tank of its own. Feeding the fish in the browser drops food on the matrix too. |
 
 ## Run it
-1. Copy this `ASCII_Aquarium_UnoQ` folder into your App Lab apps (or import it), open it, press **Run**.
+1. Copy this folder into your App Lab apps (or import it), open it, press **Run**.
 2. Open the URL App Lab prints (port 7000, e.g. `http://<your-uno-q>.local:7000`) in any browser on your network, or open it in the browser on a monitor plugged into the UNO Q and press **Enter** for fullscreen.
 
 ## Controls
