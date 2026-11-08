@@ -1,0 +1,6 @@
+name: ASCII Aquarium
+icon: 🐠
+description: A living ASCII fish tank. Open it in any browser (or fullscreen on a monitor) and watch a tiny aquarium swim on the UNO Q's LED matrix too.
+
+bricks:
+  - arduino:web_ui

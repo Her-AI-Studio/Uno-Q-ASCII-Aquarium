@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ASCII Aquarium</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="tank" aria-label="Animated ASCII aquarium. Click or tap to feed the fish."></canvas>
+
+  <button id="gear" class="chrome" aria-label="Settings" title="Settings (S)">&#9881;</button>
+
+  <aside id="panel" class="chrome" hidden>
+    <header>
+      <h1>ASCII Aquarium <span class="fish">&gt;&lt;(((&deg;&gt;</span></h1>
+      <button id="close" aria-label="Close settings">&times;</button>
+    </header>
+
+    <nav id="tabs" role="tablist">
+      <button role="tab" data-tab="tank" aria-selected="true">Tank</button>
+      <button role="tab" data-tab="creatures" aria-selected="false">Visitors</button>
+      <button role="tab" data-tab="look" aria-selected="false">Look</button>
+      <button role="tab" data-tab="clock" aria-selected="false">Clock</button>
+    </nav>
+
+    <section data-pane="tank">
+      <label>Fish <output></output><input type="range" data-key="fish" min="6" max="36" step="1"></label>
+      <label>Bubbles <output></output><input type="range" data-key="bubbles" min="0" max="50" step="1"></label>
+      <label>Seaweed sway <output></output><input type="range" data-key="sway" min="0.25" max="2.5" step="0.05"></label>
+      <label>Seaweed length <output></output><input type="range" data-key="seaweedLength" min="0.8" max="1.6" step="0.05"></label>
+      <label>Seaweed randomness <output></output><input type="range" data-key="seaweedRandom" min="0" max="0.5" step="0.05"></label>
+      <label>Auto-feed
+        <select data-key="autoFeed">
+          <option value="0">Off</option><option value="1">1 / hour</option><option value="2">2 / hour</option>
+          <option value="4">4 / hour</option><option value="6">6 / hour</option><option value="12">12 / hour</option>
+          <option value="60">Every minute</option>
+        </select>
+      </label>
+      <div class="row">
+        <button data-action="feed">Feed now</button>
+        <button data-action="respawn">Respawn fish</button>
+      </div>
+    </section>
+
+    <section data-pane="creatures" hidden>
+      <label>Octopus <select data-key="octopusFreq" class="freq"></select></label>
+      <label>Seahorse <select data-key="seahorseFreq" class="freq"></select></label>
+      <label>Snail <select data-key="snailFreq" class="freq"></select></label>
+      <label>Jellyfish <select data-key="jellyFreq" class="freq"></select></label>
+      <div class="row">
+        <button data-action="octopus">Octopus now</button>
+        <button data-action="seahorse">Seahorse now</button>
+        <button data-action="snail">Snail now</button>
+        <button data-action="jelly">Jelly now</button>
+        <button data-action="cthulhu">???</button>
+      </div>
+    </section>
+
+    <section data-pane="look" hidden>
+      <label>Background
+        <select data-key="bg">
+          <option value="black">Black</option>
+          <option value="dithered">Dithered fade</option>
+          <option value="smooth">Smooth fade</option>
+          <option value="flowers">Flowers</option>
+        </select>
+      </label>
+      <label>Fade colour <input type="color" data-key="bgColor"></label>
+      <label class="check"><input type="checkbox" data-key="rainbow"> Rainbow fade (slow)</label>
+      <label class="check"><input type="checkbox" data-key="autoSky"> Auto Sky (follows time of day)</label>
+      <div class="row"><button data-action="flowers">Shuffle flowers</button></div>
+      <label class="check"><input type="checkbox" data-key="matrixOn"> Show the tank on the UNO Q LED matrix</label>
+    </section>
+
+    <section data-pane="clock" hidden>
+      <label>Clock
+        <select data-key="clock">
+          <option value="off">Off</option><option value="small">Small</option><option value="ascii">Large ASCII</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" data-key="clock24"> 24-hour</label>
+      <label>Colour <input type="color" data-key="clockColor"></label>
+    </section>
+
+    <footer>
+      Keys: <kbd>F</kbd> feed &middot; <kbd>S</kbd> settings &middot; <kbd>Enter</kbd> fullscreen
+      &middot; <kbd>O</kbd> <kbd>H</kbd> <kbd>N</kbd> <kbd>J</kbd> visitors
+    </footer>
+  </aside>
+
+  <script src="libs/socket.io.min.js"></script>
+  <script src="libs/arduino.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
